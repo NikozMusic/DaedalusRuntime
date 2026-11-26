@@ -9,6 +9,8 @@ repositories {
 	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
+
+	mavenCentral()
 }
 
 loom {
@@ -30,6 +32,8 @@ dependencies {
 	implementation "dev.hollowcube:luau:0.3.1"
 	implementation "dev.hollowcube:luau-natives-windows-x64:0.3.1"
 	implementation "dev.hollowcube:luau-natives-linux-x64:0.3.1"
+
+	implementation "net.kyori:adventure-text-minimessage:5.2.0"
 }
 
 processResources {

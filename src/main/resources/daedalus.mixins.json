@@ -1,14 +1,14 @@
 {
-	"required": true,
-	"package": "com.example.mixin",
+	"required":           true,
+	"package":            "net.zmods.daedalus.mixin",
 	"compatibilityLevel": "JAVA_25",
-	"mixins": [
-      "net.zmods.mixin.ExampleMixin"
+	"mixins":             [
+      "net.zmods.daedalus.mixin.ExampleMixin"
 	],
-	"injectors": {
+	"injectors":          {
 		"defaultRequire": 1
 	},
-	"overwrites": {
+	"overwrites":         {
 		"requireAnnotations": true
 	}
 }

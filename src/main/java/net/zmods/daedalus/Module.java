@@ -1,8 +1,6 @@
-package net.zmods;
+package net.zmods.daedalus;
 
 import net.hollowcube.luau.LuaState;
-
-import java.nio.file.Path;
 
 public class Module {
     private final ModuleProperties properties;

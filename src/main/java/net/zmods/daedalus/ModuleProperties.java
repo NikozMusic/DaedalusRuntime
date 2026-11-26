@@ -1,4 +1,4 @@
-package net.zmods;
+package net.zmods.daedalus;
 
 public record ModuleProperties(
     DataProperties data,

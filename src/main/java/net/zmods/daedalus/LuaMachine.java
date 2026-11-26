@@ -1,4 +1,4 @@
-package net.zmods;
+package net.zmods.daedalus;
 
 import net.hollowcube.luau.LuaState;
 import net.hollowcube.luau.compiler.LuauCompileException;
@@ -24,6 +24,10 @@ public class LuaMachine {
         } finally {
             state.close();
         }
+    }
+
+    public class instance {
+
     }
 
 }

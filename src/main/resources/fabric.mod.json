@@ -16,7 +16,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"net.zmods.Daedalus"
+          "net.zmods.daedalus.Daedalus"
 		]
 	},
 	"depends": {

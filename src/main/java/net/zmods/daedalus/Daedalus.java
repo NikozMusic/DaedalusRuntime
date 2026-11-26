@@ -1,11 +1,10 @@
-package net.zmods;
+package net.zmods.daedalus;
 
 import com.mojang.brigadier.Command;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
-import net.hollowcube.luau.compiler.LuauCompileException;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -25,11 +24,11 @@ public class Daedalus implements ModInitializer {
 	public static final String RUNTIME_VERSION = FabricLoader.getInstance().getModContainer("daedalus").orElseThrow().getMetadata().getVersion().getFriendlyString();
 
 	public static boolean debugMode = false;
+	public static boolean hotLoad = false;
 	public static List<Module> loadedModules;
 
 	public LuaMachine luaMachine = new LuaMachine();
 	public ModuleLoader moduleLoader = new ModuleLoader();
-
 
 	@Override
 	public void onInitialize() {
@@ -38,7 +37,6 @@ public class Daedalus implements ModInitializer {
 		createUtilityCommand();
 		moduleLoader.initializeDirectories();
 		moduleLoader.loadModules();
-
 
     }
 

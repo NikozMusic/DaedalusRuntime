@@ -1,4 +1,4 @@
-package net.zmods.mixin;
+package net.zmods.daedalus.mixin;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
