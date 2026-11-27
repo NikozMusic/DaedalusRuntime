@@ -32,8 +32,6 @@ dependencies {
 	implementation "dev.hollowcube:luau:0.3.1"
 	implementation "dev.hollowcube:luau-natives-windows-x64:0.3.1"
 	implementation "dev.hollowcube:luau-natives-linux-x64:0.3.1"
-
-	implementation "net.kyori:adventure-text-minimessage:5.2.0"
 }
 
 processResources {

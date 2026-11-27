@@ -5,12 +5,16 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.loader.api.FabricLoader;
+import net.hollowcube.luau.LuaState;
+import net.hollowcube.luau.compiler.LuauCompileException;
+import net.hollowcube.luau.compiler.LuauCompiler;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static net.minecraft.commands.Commands.literal;
@@ -25,7 +29,8 @@ public class Daedalus implements ModInitializer {
 
 	public static boolean debugMode = false;
 	public static boolean hotLoad = false;
-	public static List<Module> loadedModules;
+
+	public static List<Module> loadedModules = new ArrayList<>();
 
 	public LuaMachine luaMachine = new LuaMachine();
 	public ModuleLoader moduleLoader = new ModuleLoader();
@@ -36,14 +41,12 @@ public class Daedalus implements ModInitializer {
 
 		createUtilityCommand();
 		moduleLoader.initializeDirectories();
-		moduleLoader.loadModules();
-
+		loadedModules = moduleLoader.loadModules();
     }
 
 	public void createUtilityCommand() {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(literal("daedalus")
-
 					.then(literal("info")
 							.executes(context -> {
 								context.getSource().sendSuccess(() -> Component.literal("Daedalus Runtime Information :\n")
@@ -56,7 +59,6 @@ public class Daedalus implements ModInitializer {
 												.append(Component.literal(LUAUJ_VERSION).withStyle(ChatFormatting.WHITE))
 										, false);
 								return Command.SINGLE_SUCCESS;}))
-
 			);
 		});
 	}
